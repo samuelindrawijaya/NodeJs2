@@ -1,19 +1,25 @@
-export const fetchData = async (urlParam) => {
+export const fetchData = async(urlParam, method) => {
     try
     {
-        const response = await fetch(urlParam);
+        const response = await fetch(urlParam,
+            {
+                method : method ?? 'GET'
+            }
+        );
         if(!response.ok)
         {
             throw new Error("Could not fetch resource");
         }
+        //convert to json
         const data = await response.json();
         return data;
 
     }
     catch(error)
     {
-        console.log(error);
-        let messageError = 'error while trying to get data ';
+        let messageError = error.message;
         return messageError;
     }
+
 }
+

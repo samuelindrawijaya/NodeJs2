@@ -9,13 +9,15 @@
   <body>
     <div class="container">
       <h1>Random Recipe Finder</h1>
-      <button id="getRecipeBtn" onclick="fetchData();">Get Random Recipe</button>
+      <button id="getRecipeBtn" onclick="loadData();">Get Random Recipe</button>
       <div id="recipeContainer" class="recipe-container">
         <img class="recipe-image" id="recipeImg" alt="" />
         <h2 class="recipe-title" id="recipeId"></h2>
-        <p class="recipe-instruction" id="recipeInstruction"></p>
       </div>
     </div>
   </body>
 </html>
-<script type="text/javascript" src="/src/main.js"></script>
+<script type="module">
+  import { loadData } from "./src/main.js";
+  window.loadData=loadData;
+</script>
